@@ -1,4 +1,5 @@
 import stars from '../assets/stars.svg'
+import { Tag } from './Tag'
 
 export function MovieCard() {
   return (
@@ -17,7 +18,9 @@ export function MovieCard() {
         tenta se...
       </p>
 
-      <div>{/* tags */}</div>
+      <div>
+        <Tag label='Drama'/>
+      </div>
     </div>
   )
 }
