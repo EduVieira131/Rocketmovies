@@ -2,7 +2,7 @@ import { Input } from './Input'
 
 export function Header() {
   return (
-    <header className="bg-[#1C1B1E] md:flex md:items-center md:justify-center grid grid-cols-2 grid-rows-2 gap-3 lg:gap-16 w-full min-w-min px-4 lg:px-32 py-6 border-b-2 border-[#3E3B47] ">
+    <header className="md:flex md:items-center md:justify-center grid grid-cols-2 grid-rows-2 gap-3 lg:gap-16 w-full min-w-min px-4 lg:px-32 py-6 border-b-2 border-[#3E3B47] ">
       <h1 className="text-[#FF859B] text-1xl font-bold order-1 place-self-center">
         RocketMovies
       </h1>
