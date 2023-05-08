@@ -18,8 +18,10 @@ export function MovieCard() {
         tenta se...
       </p>
 
-      <div>
+      <div className='flex gap-2'>
+        <Tag label='Ficção científica'/>
         <Tag label='Drama'/>
+        <Tag label='Família'/>
       </div>
     </div>
   )
