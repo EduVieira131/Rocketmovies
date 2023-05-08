@@ -6,7 +6,7 @@ import { MovieCard } from '../components/MovieCard'
 
 export function Home() {
   return (
-    <div>
+    <>
       <Header />
 
       <main className="max-w-6xl mx-auto mt-12 p-4">
@@ -24,6 +24,6 @@ export function Home() {
           <MovieCard />
         </div>
       </main>
-    </div>
+    </>
   )
 }

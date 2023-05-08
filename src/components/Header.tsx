@@ -19,11 +19,13 @@ export function Header() {
           </a>
         </div>
 
+        <a href="#">
         <img
           src="https://github.com/EduVieira131.png"
           alt="Imagem do usuário"
           className="w-14 max-w-fit h-14 border-2 border-[#3E3B47] rounded-full"
         />
+        </a>
       </div>
     </header>
   )
