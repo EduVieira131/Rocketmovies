@@ -1,15 +1,14 @@
 import { FiArrowLeft, FiCamera, FiLock, FiMail, FiUser } from 'react-icons/fi'
 import { Input } from '../components/Input'
 import { Button } from '../components/Button'
+import { ButtonText } from '../components/ButtonText'
 
 export function Profile() {
   return (
     <>
       <header className="bg-[#FF859B]/5 w-full h-36">
-        <div className=" w-fit pt-16 ml-[12%] text-[#FF859B]">
-          <a href="#" className="flex items-center gap-2">
-            <FiArrowLeft /> Voltar
-          </a>
+        <div className=" w-fit pt-16 ml-[12%]">
+          <ButtonText placeholder='Voltar' haveIcon/>
         </div>
       </header>
 
