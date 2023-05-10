@@ -2,6 +2,7 @@ import { Button } from '../components/Button'
 import { ButtonText } from '../components/ButtonText'
 import { Header } from '../components/Header'
 import { Input } from '../components/Input'
+import { Tag } from '../components/Tag'
 
 export function CreateMovie() {
   return (
@@ -32,7 +33,9 @@ export function CreateMovie() {
             Marcadores
           </h2>
 
-          <div className="bg-[#0D0C0F] rounded-lg w-full p-4"></div>
+          <div className="flex flex-wrap items-center gap-6 bg-[#0D0C0F] rounded-lg w-full p-4">
+            <Tag label='React' />
+          </div>
         </div>
 
         <div className='flex gap-10'>
