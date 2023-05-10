@@ -2,6 +2,7 @@ import { Button } from '../components/Button'
 import { ButtonText } from '../components/ButtonText'
 import { Header } from '../components/Header'
 import { Input } from '../components/Input'
+import { NewTag } from '../components/NewTag'
 import { Tag } from '../components/Tag'
 
 export function CreateMovie() {
@@ -35,6 +36,8 @@ export function CreateMovie() {
 
           <div className="flex flex-wrap items-center gap-6 bg-[#0D0C0F] rounded-lg w-full p-4">
             <Tag label='React' />
+
+            <NewTag />
           </div>
         </div>
 
