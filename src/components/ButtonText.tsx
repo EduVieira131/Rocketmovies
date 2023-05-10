@@ -7,7 +7,7 @@ interface ButtonTextProps {
 
 export function ButtonText(props:ButtonTextProps) {
   return (
-    <a href="#" className="flex items-center gap-2 text-[#FF859B]">
+    <a href="#" className="flex items-center justify-center gap-2 w-fit text-[#FF859B]">
       {props.haveIcon ? <FiArrowLeft /> : ''} {props.placeholder}
     </a>
   )

@@ -13,9 +13,11 @@ export function Home() {
         <div className="flex justify-between items-center mb-10">
           <h2 className="font-normal text-3xl text-neutral-50">Meus filmes</h2>
 
-          <Button title="Adicionar filme">
-            <FiPlus />
-          </Button>
+          <div>
+            <Button title="Adicionar filme">
+              <FiPlus />
+            </Button>
+          </div>
         </div>
 
         <div className="flex flex-col gap-6 max-h-[680px] overflow-auto">
