@@ -6,7 +6,7 @@ import starsImage from '../assets/stars.svg'
 
 export function MovieHeader() {
   return (
-    <div className="flex flex-col gap-6 w-fit">
+    <div className="flex flex-col gap-6 w-fit mt-10">
       <ButtonText placeholder="Voltar" haveIcon to='/'/>
 
       <div className="flex items-center gap-5">
