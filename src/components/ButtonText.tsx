@@ -1,14 +1,19 @@
-import { FiArrowLeft } from "react-icons/fi";
+import { FiArrowLeft } from 'react-icons/fi'
+import { Link } from 'react-router-dom'
 
 interface ButtonTextProps {
-  placeholder: string;
-  haveIcon?: boolean;
+  placeholder: string
+  to: string
+  haveIcon?: boolean
 }
 
-export function ButtonText(props:ButtonTextProps) {
+export function ButtonText(props: ButtonTextProps) {
   return (
-    <a href="#" className="flex items-center justify-center gap-2 w-fit text-[#FF859B]">
+    <Link
+      to={props.to}
+      className="flex items-center justify-center gap-2 w-fit text-[#FF859B]"
+    >
       {props.haveIcon ? <FiArrowLeft /> : ''} {props.placeholder}
-    </a>
+    </Link>
   )
 }

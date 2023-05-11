@@ -26,11 +26,11 @@ export function SignIn() {
             <Input placeholder="Senha" icon={FiLock} type="password" />
           </div>
 
-          <div className='w-full mb-12'>
+          <div className="w-full mb-12">
             <Button title="Entrar" />
           </div>
 
-          <ButtonText placeholder="Criar conta" />
+          <ButtonText placeholder="Criar conta" to='/register'/>
         </form>
 
         <div className="flex ml-auto max-h-screen">

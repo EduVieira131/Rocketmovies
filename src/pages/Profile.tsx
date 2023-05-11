@@ -8,7 +8,7 @@ export function Profile() {
     <>
       <header className="bg-[#FF859B]/5 w-full h-36">
         <div className=" w-fit pt-16 ml-[12%]">
-          <ButtonText placeholder="Voltar" haveIcon />
+          <ButtonText placeholder="Voltar" haveIcon to='/'/>
         </div>
       </header>
 

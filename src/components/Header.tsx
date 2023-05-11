@@ -1,5 +1,7 @@
 import { Input } from './Input'
 
+import { Link } from 'react-router-dom'
+
 export function Header() {
   return (
     <header className="flex items-center justify-center flex-wrap lg:flex-nowrap gap-3 lg:gap-16 w-full px-4 lg:px-28 py-6 border-b-2 border-[#3E3B47] ">
@@ -14,18 +16,18 @@ export function Header() {
           <span className="whitespace-nowrap text-[#F4EDE8] font-bold">
             Eduardo Vieira
           </span>
-          <a href="#" className="self-end text-[#948F99]">
+          <Link to='/' className="self-end text-[#948F99]">
             Sair
-          </a>
+          </Link>
         </div>
 
-        <a href="#">
+        <Link to='/profile'>
           <img
             src="https://github.com/EduVieira131.png"
             alt="Imagem do usuário"
             className="w-14 max-w-fit h-14 border-2 border-[#3E3B47] rounded-full"
           />
-        </a>
+        </Link>
       </div>
     </header>
   )

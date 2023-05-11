@@ -31,7 +31,7 @@ export function SignUp() {
             <Button title="Cadastrar" />
           </div>
 
-          <ButtonText placeholder="Voltar para o login" haveIcon />
+          <ButtonText placeholder="Voltar para o login" haveIcon to='/'/>
         </form>
 
         <div className="flex ml-auto max-h-screen">

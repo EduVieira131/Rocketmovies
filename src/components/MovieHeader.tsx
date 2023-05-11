@@ -7,7 +7,7 @@ import starsImage from '../assets/stars.svg'
 export function MovieHeader() {
   return (
     <div className="flex flex-col gap-6 w-fit">
-      <ButtonText placeholder="Voltar" haveIcon />
+      <ButtonText placeholder="Voltar" haveIcon to='/'/>
 
       <div className="flex items-center gap-5">
         <h1 className="text-[#F4EDE8] text-4xl font-medium ">Interestellar</h1>

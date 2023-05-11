@@ -12,7 +12,7 @@ export function CreateMovie() {
 
       <main className="max-w-6xl mx-auto p-4 flex flex-col gap-10">
         <div>
-          <ButtonText placeholder="Voltar" haveIcon />
+          <ButtonText placeholder="Voltar" haveIcon to="/" />
           <h1 className="text-[#F4EDE8] text-4xl font-medium mt-6">
             Novo Filme
           </h1>
@@ -35,16 +35,16 @@ export function CreateMovie() {
           </h2>
 
           <div className="flex flex-wrap items-center gap-6 bg-[#0D0C0F] rounded-lg w-full p-4">
-            <Tag label='React' />
+            <Tag label="React" />
 
             <NewTag />
           </div>
         </div>
 
-        <div className='flex gap-10'>
-          <div className="bg-[#0D0C0F] rounded-lg py-4 px-8 flex items-center justify-center w-full">
-            <ButtonText placeholder="Excluir filme" />
-          </div>
+        <div className="flex gap-10">
+          <button className="flex items-center justify-center gap-2 w-full h-full text-[#FF859B] bg-[#0D0C0F] rounded-lg py-4 px-8">
+            Excluir nota
+          </button>
 
           <Button title="Salvar alterações" />
         </div>
