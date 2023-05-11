@@ -3,7 +3,7 @@ import { ButtonText } from '../components/ButtonText'
 import { Header } from '../components/Header'
 import { Input } from '../components/Input'
 import { NewTag } from '../components/NewTag'
-import { Tag } from '../components/Tag'
+import { TagEdit } from '../components/TagEdit'
 
 export function CreateMovie() {
   return (
@@ -35,7 +35,7 @@ export function CreateMovie() {
           </h2>
 
           <div className="flex flex-wrap items-center gap-6 bg-[#0D0C0F] rounded-lg w-full p-4">
-            <Tag label="React" />
+            <TagEdit label="React" />
 
             <NewTag />
           </div>
