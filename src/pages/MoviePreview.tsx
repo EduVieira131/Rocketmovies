@@ -9,7 +9,7 @@ export function MoviePreview() {
       <main className="max-w-6xl h-[85vh] mx-auto p-4 flex flex-col gap-10 overflow-auto">
         <MovieHeader />
 
-        <div>
+        <div className='flex gap-2'>
           <span className="px-4 py-2 bg-[#282124] text-[#E5E5E5] text-xs rounded-lg">
             Ficção científica
           </span>

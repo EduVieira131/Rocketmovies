@@ -10,7 +10,7 @@ export function CreateMovie() {
     <>
       <Header />
 
-      <main className="max-w-6xl mx-auto p-4 flex flex-col gap-10">
+      <main className="max-w-6xl mx-auto mt-10 p-4 flex flex-col gap-10">
         <div>
           <ButtonText placeholder="Voltar" haveIcon to="/" />
           <h1 className="text-[#F4EDE8] text-4xl font-medium mt-6">
