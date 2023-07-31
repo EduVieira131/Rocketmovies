@@ -14,7 +14,7 @@ export function MovieCard() {
           Interestellar
         </h3>
 
-        <img src={stars} />
+        <img src={stars} alt="star icon" />
       </div>
 
       <p className="text-[#999591]">

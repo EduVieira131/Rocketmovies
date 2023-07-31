@@ -1,4 +1,4 @@
-import { FiPlus } from "react-icons/fi";
+import { FiPlus } from 'react-icons/fi'
 
 export function NewTag() {
   return (

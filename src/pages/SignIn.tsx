@@ -30,7 +30,7 @@ export function SignIn() {
             <Button title="Entrar" />
           </div>
 
-          <ButtonText placeholder="Criar conta" to='/register'/>
+          <ButtonText placeholder="Criar conta" to="/register" />
         </form>
 
         <div className="flex ml-auto max-h-screen">

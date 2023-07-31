@@ -15,7 +15,7 @@ export function Home() {
         <div className="flex justify-between items-center mb-10">
           <h2 className="font-normal text-3xl text-neutral-50">Meus filmes</h2>
 
-          <Link to='/createnote'>
+          <Link to="/createnote">
             <Button title="Adicionar filme">
               <FiPlus />
             </Button>

@@ -8,7 +8,7 @@ export function Profile() {
     <>
       <header className="bg-[#FF859B]/5 w-full h-36">
         <div className=" w-fit pt-16 ml-[12%]">
-          <ButtonText placeholder="Voltar" haveIcon to='/'/>
+          <ButtonText placeholder="Voltar" haveIcon to="/" />
         </div>
       </header>
 
@@ -32,7 +32,7 @@ export function Profile() {
 
         <div className="flex flex-col gap-2 w-full">
           <Input placeholder="Seu nome" icon={FiUser} />
-          <Input placeholder="Seu e-mail" icon={FiMail} type='email'/>
+          <Input placeholder="Seu e-mail" icon={FiMail} type="email" />
           <span className="mt-6">
             <Input placeholder="Senha atual" icon={FiLock} type="password" />
           </span>

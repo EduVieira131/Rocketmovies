@@ -16,12 +16,12 @@ export function Header() {
           <span className="whitespace-nowrap text-[#F4EDE8] font-bold">
             Eduardo Vieira
           </span>
-          <Link to='/' className="self-end text-[#948F99]">
+          <Link to="/" className="self-end text-[#948F99]">
             Sair
           </Link>
         </div>
 
-        <Link to='/profile'>
+        <Link to="/profile">
           <img
             src="https://github.com/EduVieira131.png"
             alt="Imagem do usuário"
