@@ -6,7 +6,7 @@ export const AuthContext = createContext({})
 function AuthProvider({ children }) {
   const [data, setData] = useState({})
 
-  async function SignIn({ email, password }) {
+  async function signIn({ email, password }) {
     try {
       const response = await api.post('/sessions', { email, password })
       const { user, token } = response.data
@@ -23,24 +23,31 @@ function AuthProvider({ children }) {
         alert('Não foi possível fazer login na aplicação!')
       }
     }
-
-    useEffect(() => {
-      const token = localStorage.getItem('@rocketmovies:token')
-      const user = localStorage.getItem('@rocketmovies:user')
-
-      if (token && user) {
-        api.defaults.headers.common.Authorization = `Bearer ${token}`
-
-        setData({
-          token,
-          user: JSON.parse(user),
-        })
-      }
-    })
   }
 
+  function signOut() {
+    localStorage.removeItem('@rocketmovies:user')
+    localStorage.removeItem('@rocketmovies:token')
+
+    setData({})
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem('@rocketmovies:token')
+    const user = localStorage.getItem('@rocketmovies:user')
+
+    if (token && user) {
+      api.defaults.headers.common.Authorization = `Bearer ${token}`
+
+      setData({
+        token,
+        user: JSON.parse(user),
+      })
+    }
+  }, [])
+
   return (
-    <AuthContext.Provider value={{ SignIn, user: data.user }}>
+    <AuthContext.Provider value={{ signIn, signOut, user: data.user }}>
       {children}
     </AuthContext.Provider>
   )

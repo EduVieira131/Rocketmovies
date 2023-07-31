@@ -1,11 +1,21 @@
+import { useAuth } from '../hooks/auth'
 import { Input } from './Input'
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export function Header() {
+  const { signOut } = useAuth()
+
+  const navigate = useNavigate()
+
+  function handleSignOut() {
+    navigate('/')
+    signOut()
+  }
+
   return (
-    <header className="flex items-center justify-center gap-16 w-full px-28 py-6 border-b-2 border-[#3E3B47] ">
-      <h1 className="text-[#FF859B] text-lg lg:text-2xl font-bold place-self-center">
+    <header className="flex w-full items-center justify-center gap-16 border-b-2 border-[#3E3B47] px-28 py-6 ">
+      <h1 className="place-self-center text-lg font-bold text-[#FF859B] lg:text-2xl">
         RocketMovies
       </h1>
 
@@ -13,19 +23,19 @@ export function Header() {
 
       <div className="flex items-center gap-2 place-self-center">
         <div className="flex flex-col">
-          <span className="whitespace-nowrap text-[#F4EDE8] font-bold">
+          <span className="whitespace-nowrap font-bold text-[#F4EDE8]">
             Eduardo Vieira
           </span>
-          <Link to="/" className="self-end text-[#948F99]">
+          <button className="self-end text-[#948F99]" onClick={handleSignOut}>
             Sair
-          </Link>
+          </button>
         </div>
 
         <Link to="/profile">
           <img
             src="https://github.com/EduVieira131.png"
             alt="Imagem do usuário"
-            className="w-14 max-w-fit h-14 border-2 border-[#3E3B47] rounded-full"
+            className="h-14 w-14 max-w-fit rounded-full border-2 border-[#3E3B47]"
           />
         </Link>
       </div>
