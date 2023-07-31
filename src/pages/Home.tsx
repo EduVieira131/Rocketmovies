@@ -9,25 +9,29 @@ import { Link } from 'react-router-dom'
 export function Home() {
   return (
     <>
-      <Header />
+      <div className="p-2">
+        <Header />
 
-      <main className="max-w-6xl mx-auto mt-12">
-        <div className="flex justify-between items-center mb-10">
-          <h2 className="font-normal text-3xl text-neutral-50">Meus filmes</h2>
+        <main className="mx-auto max-w-6xl pt-12">
+          <div className="mb-10 flex items-center justify-between">
+            <h2 className="text-3xl font-normal text-neutral-50">
+              Meus filmes
+            </h2>
 
-          <Link to="/createnote">
-            <Button title="Adicionar filme">
-              <FiPlus />
-            </Button>
-          </Link>
-        </div>
+            <Link to="/createnote">
+              <Button title="Adicionar filme">
+                <FiPlus />
+              </Button>
+            </Link>
+          </div>
 
-        <div className="flex flex-col gap-6 max-h-[680px] overflow-auto">
-          <MovieCard />
-          <MovieCard />
-          <MovieCard />
-        </div>
-      </main>
+          <div className="flex max-h-[480px] flex-col gap-6 overflow-auto 2xl:max-h-[680px]">
+            <MovieCard />
+            <MovieCard />
+            <MovieCard />
+          </div>
+        </main>
+      </div>
     </>
   )
 }
