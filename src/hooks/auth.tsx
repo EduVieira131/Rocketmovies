@@ -11,6 +11,9 @@ function AuthProvider({ children }) {
       const response = await api.post('/sessions', { email, password })
       const { user, token } = response.data
 
+      localStorage.setItem('@rocketmovies:user', JSON.stringify(user))
+      localStorage.setItem('@rocketmovies:token', token)
+
       api.defaults.headers.common.Authorization = `Bearer ${token}`
       setData({ user, token })
     } catch (error) {
@@ -20,6 +23,20 @@ function AuthProvider({ children }) {
         alert('Não foi possível fazer login na aplicação!')
       }
     }
+
+    useEffect(() => {
+      const token = localStorage.getItem('@rocketmovies:token')
+      const user = localStorage.getItem('@rocketmovies:user')
+
+      if (token && user) {
+        api.defaults.headers.common.Authorization = `Bearer ${token}`
+
+        setData({
+          token,
+          user: JSON.parse(user),
+        })
+      }
+    })
   }
 
   return (
