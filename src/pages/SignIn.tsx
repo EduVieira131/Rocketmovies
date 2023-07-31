@@ -3,37 +3,64 @@ import { Input } from '../components/Input'
 import { Button } from '../components/Button'
 import { ButtonText } from '../components/ButtonText'
 
+import { useState } from 'react'
+import { useAuth } from '../hooks/auth'
+
 import image from '../assets/signImage.png'
 
 export function SignIn() {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const { SignIn } = useAuth()
+
+  function handleSignIn() {
+    SignIn({ email, password })
+  }
+
   return (
     <>
       <div className="flex items-stretch">
-        <form className="flex flex-col items-center justify-center mx-auto p-4">
-          <h1 className="text-[#FF859B] text-5xl font-bold place-self-center">
+        <form className="mx-auto flex flex-col items-center justify-center p-4">
+          <h1 className="place-self-center text-5xl font-bold text-[#FF859B]">
             RocketMovies
           </h1>
-          <p className="text-[#CAC4CF] text-sm mb-12">
+          <p className="mb-12 text-sm text-[#CAC4CF]">
             Aplicação para acompanhar tudo que assistir.
           </p>
 
-          <h2 className="w-full text-[#F4EDE8] text-2xl text-left mb-12">
+          <h2 className="mb-12 w-full text-left text-2xl text-[#F4EDE8]">
             Faça seu login
           </h2>
 
-          <div className="flex flex-col gap-2 w-full mb-6">
-            <Input placeholder="E-mail" icon={FiMail} />
-            <Input placeholder="Senha" icon={FiLock} type="password" />
+          <div className="mb-6 flex w-full flex-col gap-2">
+            <Input
+              placeholder="E-mail"
+              icon={FiMail}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <Input
+              placeholder="Senha"
+              icon={FiLock}
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
 
-          <div className="w-full mb-12">
-            <Button title="Entrar" />
+          <div className="mb-12 w-full">
+            <Button
+              title="Entrar"
+              onClick={(e) => {
+                e.preventDefault()
+                handleSignIn()
+              }}
+            />
           </div>
 
           <ButtonText placeholder="Criar conta" to="/register" />
         </form>
 
-        <div className="flex ml-auto max-h-screen">
+        <div className="ml-auto flex max-h-screen">
           <img src={image} alt="Imagem de um cinema" />
         </div>
       </div>
