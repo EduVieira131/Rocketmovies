@@ -3,38 +3,86 @@ import { Input } from '../components/Input'
 import { Button } from '../components/Button'
 import { ButtonText } from '../components/ButtonText'
 
+import { useState } from 'react'
+import { api } from '../services/api'
+import { useNavigate } from 'react-router-dom'
+
 import image from '../assets/signImage.png'
 
 export function SignUp() {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const navigate = useNavigate()
+
+  function handleSignUp() {
+    if (!name || !email || !password) {
+      return alert('Preencha todos os campos')
+    }
+    api
+      .post('/users', { name, email, password })
+      .then(() => {
+        alert('Usuário cadastrado com sucesso')
+        navigate('/')
+      })
+      .catch((error) => {
+        if (error.response) {
+          alert(error.response.data.message)
+        } else {
+          alert('Não foi possível cadastrar o usuário.')
+        }
+      })
+  }
+
   return (
     <>
       <div className="flex items-stretch">
-        <form className="flex flex-col items-center justify-center mx-auto p-4">
-          <h1 className="text-[#FF859B] text-5xl font-bold place-self-center">
+        <form className="mx-auto flex flex-col items-center justify-center p-4">
+          <h1 className="place-self-center text-5xl font-bold text-[#FF859B]">
             RocketMovies
           </h1>
-          <p className="text-[#CAC4CF] text-sm mb-12">
+          <p className="mb-12 text-sm text-[#CAC4CF]">
             Aplicação para acompanhar tudo que assistir.
           </p>
 
-          <h2 className="w-full text-[#F4EDE8] text-2xl text-left mb-12">
+          <h2 className="mb-12 w-full text-left text-2xl text-[#F4EDE8]">
             Crie sua conta
           </h2>
 
-          <div className="flex flex-col gap-2 w-full mb-6">
-            <Input placeholder="Nome" icon={FiUser} />
-            <Input placeholder="E-mail" icon={FiMail} />
-            <Input placeholder="Senha" icon={FiLock} type="password" />
+          <div className="mb-6 flex w-full flex-col gap-2">
+            <Input
+              placeholder="Nome"
+              icon={FiUser}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <Input
+              placeholder="E-mail"
+              icon={FiMail}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <Input
+              placeholder="Senha"
+              icon={FiLock}
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
 
-          <div className="w-full mb-12">
-            <Button title="Cadastrar" />
+          <div className="mb-12 w-full">
+            <Button
+              title="Cadastrar"
+              onClick={(e) => {
+                e.preventDefault()
+                handleSignUp()
+              }}
+            />
           </div>
 
           <ButtonText placeholder="Voltar para o login" haveIcon to="/" />
         </form>
 
-        <div className="flex ml-auto max-h-screen">
+        <div className="ml-auto flex max-h-screen">
           <img src={image} alt="Imagem de um cinema" />
         </div>
       </div>

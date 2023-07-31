@@ -5,11 +5,14 @@ interface ButtonProps {
   children?: ReactNode
 }
 
-export function Button(props: ButtonProps) {
+export function Button({ children, title, ...rest }: ButtonProps) {
   return (
-    <button className="flex items-center justify-center gap-2 w-full bg-[#FF859B] rounded-lg px-8 py-3 text-[#1C1B1E] font-medium">
-      {props.children}
-      {props.title}
+    <button
+      className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#FF859B] px-8 py-3 font-medium text-[#1C1B1E]"
+      {...rest}
+    >
+      {children}
+      {title}
     </button>
   )
 }
