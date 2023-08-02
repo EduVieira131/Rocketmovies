@@ -1,12 +1,19 @@
-import { useAuth } from '../hooks/auth'
 import { Input } from './Input'
 
+import avatarPlaceholder from '../assets/avatar_placeholder.svg'
+
+import { useAuth } from '../hooks/auth'
+import { api } from '../services/api'
 import { Link, useNavigate } from 'react-router-dom'
 
 export function Header() {
-  const { signOut } = useAuth()
+  const { signOut, user } = useAuth()
 
   const navigate = useNavigate()
+
+  const avatarUrl = user.avatar
+    ? `${api.defaults.baseURL}/files/${user.avatar}`
+    : avatarPlaceholder
 
   function handleSignOut() {
     navigate('/')
@@ -33,7 +40,7 @@ export function Header() {
 
         <Link to="/profile">
           <img
-            src="https://github.com/EduVieira131.png"
+            src={avatarUrl}
             alt="Imagem do usuário"
             className="h-14 w-14 max-w-fit rounded-full border-2 border-[#3E3B47]"
           />
