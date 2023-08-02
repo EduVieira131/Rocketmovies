@@ -3,16 +3,46 @@ import { Input } from '../components/Input'
 import { Button } from '../components/Button'
 import { ButtonText } from '../components/ButtonText'
 
+import avatarPlaceholder from '../assets/avatar_placeholder.svg'
+
+import { api } from '../services/api'
 import { useAuth } from '../hooks/auth'
 import { useState } from 'react'
 
 export function Profile() {
-  const { user } = useAuth()
+  const { user, updateProfile } = useAuth()
 
   const [name, setName] = useState(user.name)
   const [email, setEmail] = useState(user.email)
   const [password, setPassword] = useState()
   const [newPassword, setNewPassword] = useState()
+
+  const avatarUrl = user.avatar
+    ? `${api.defaults.baseURL}/files/${user.avatar}`
+    : avatarPlaceholder
+  const [avatar, setAvatar] = useState(avatarUrl)
+  const [avatarFile, setAvatarFile] = useState(null)
+
+  async function handleUpdate() {
+    const updated = {
+      name,
+      email,
+      password: newPassword,
+      old_password: password,
+    }
+
+    const userUpdated = Object.assign(user, updated)
+
+    await updateProfile({ user: userUpdated, avatarFile })
+  }
+
+  function handleAvatarChange(event) {
+    const file = event.target.files[0]
+    setAvatarFile(file)
+
+    const imagePreview = URL.createObjectURL(file)
+    setAvatar(imagePreview)
+  }
 
   return (
     <>
@@ -25,7 +55,7 @@ export function Profile() {
       <main className="mx-auto -mt-20 flex max-w-[340px] flex-col items-center ">
         <div className="relative mb-16">
           <img
-            src="https://github.com/EduVieira131.png"
+            src={avatar}
             alt="Imagem do usuário"
             className="h-[186px] w-[186px] rounded-full"
           />
@@ -36,7 +66,12 @@ export function Profile() {
           >
             <FiCamera />
 
-            <input type="file" id="avatar" className="hidden" />
+            <input
+              type="file"
+              id="avatar"
+              className="hidden"
+              onChange={handleAvatarChange}
+            />
           </label>
         </div>
 
@@ -45,32 +80,32 @@ export function Profile() {
             placeholder="Seu nome"
             icon={FiUser}
             value={name}
-            onChange={setName}
+            onChange={(e) => setName(e.target.value)}
           />
           <Input
             placeholder="Seu e-mail"
             icon={FiMail}
             type="email"
             value={email}
-            onChange={setEmail}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <span className="mt-6">
             <Input
               placeholder="Senha atual"
               icon={FiLock}
               type="password"
-              onChange={setPassword}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </span>
           <Input
             placeholder="Nova senha"
             icon={FiLock}
             type="password"
-            onChange={setNewPassword}
+            onChange={(e) => setNewPassword(e.target.value)}
           />
 
           <span className="mt-6 w-full">
-            <Button title="Salvar" />
+            <Button title="Salvar" onClick={handleUpdate} />
           </span>
         </div>
       </main>
