@@ -1,4 +1,4 @@
-import { Input } from './Input'
+import { Input } from '../components/Input'
 
 import avatarPlaceholder from '../assets/avatar_placeholder.svg'
 
@@ -26,7 +26,9 @@ export function Header() {
         RocketMovies
       </h1>
 
-      <Input placeholder="Pesquisar pelo título" />
+      <Input.Root>
+        <Input.Content title="Pesquisar pelo título" type="text" />
+      </Input.Root>
 
       <div className="flex items-center gap-2 place-self-center">
         <div className="flex flex-col">

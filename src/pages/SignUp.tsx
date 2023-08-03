@@ -51,22 +51,30 @@ export function SignUp() {
           </h2>
 
           <div className="mb-6 flex w-full flex-col gap-2">
-            <Input
-              placeholder="Nome"
-              icon={FiUser}
-              onChange={(e) => setName(e.target.value)}
-            />
-            <Input
-              placeholder="E-mail"
-              icon={FiMail}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <Input
-              placeholder="Senha"
-              icon={FiLock}
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <Input.Root>
+              <Input.Icon icon={FiUser} />
+              <Input.Content
+                title="Seu nome"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </Input.Root>
+            <Input.Root>
+              <Input.Icon icon={FiMail} />
+              <Input.Content
+                title="E-mail"
+                type="email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </Input.Root>
+            <Input.Root>
+              <Input.Icon icon={FiLock} />
+              <Input.Content
+                title="Senha"
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Input.Root>
           </div>
 
           <div className="mb-12 w-full">

@@ -14,8 +14,8 @@ export function Profile() {
 
   const [name, setName] = useState(user.name)
   const [email, setEmail] = useState(user.email)
-  const [password, setPassword] = useState()
-  const [newPassword, setNewPassword] = useState()
+  const [password, setPassword] = useState('')
+  const [newPassword, setNewPassword] = useState('')
 
   const avatarUrl = user.avatar
     ? `${api.defaults.baseURL}/files/${user.avatar}`
@@ -76,33 +76,44 @@ export function Profile() {
         </div>
 
         <div className="flex w-full flex-col gap-2">
-          <Input
-            placeholder="Seu nome"
-            icon={FiUser}
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <Input
-            placeholder="Seu e-mail"
-            icon={FiMail}
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <span className="mt-6">
-            <Input
-              placeholder="Senha atual"
-              icon={FiLock}
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
+          <Input.Root>
+            <Input.Icon icon={FiUser} />
+            <Input.Content
+              title="Seu nome"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
+          </Input.Root>
+
+          <Input.Root>
+            <Input.Icon icon={FiMail} />
+            <Input.Content
+              title="Seu e-mail"
+              value={email}
+              type="email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </Input.Root>
+
+          <span className="mt-6">
+            <Input.Root>
+              <Input.Icon icon={FiLock} />
+              <Input.Content
+                title="Senha atual"
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Input.Root>
           </span>
-          <Input
-            placeholder="Nova senha"
-            icon={FiLock}
-            type="password"
-            onChange={(e) => setNewPassword(e.target.value)}
-          />
+
+          <Input.Root>
+            <Input.Icon icon={FiLock} />
+            <Input.Content
+              title="Nova senha"
+              type="password"
+              onChange={(e) => setNewPassword(e.target.value)}
+            />
+          </Input.Root>
 
           <span className="mt-6 w-full">
             <Button title="Salvar" onClick={handleUpdate} />

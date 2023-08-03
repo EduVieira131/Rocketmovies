@@ -35,8 +35,13 @@ export function CreateMovie() {
         </div>
 
         <div className="flex items-center gap-10">
-          <Input placeholder="Título" />
-          <Input placeholder="Sua nota de 0 a 5" type="number" />
+          <Input.Root>
+            <Input.Content title="Título" />
+          </Input.Root>
+
+          <Input.Root>
+            <Input.Content title="Sua nota de 0 a 5" type="number" />
+          </Input.Root>
         </div>
 
         <textarea
