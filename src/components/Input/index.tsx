@@ -7,5 +7,3 @@ export const Input = {
   Icon: InputIcon,
   Content: InputContent,
 }
-
-// presente em header, createnote, profile, signin and signout

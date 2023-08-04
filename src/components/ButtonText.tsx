@@ -1,6 +1,7 @@
+import { ComponentProps } from 'react'
 import { FiArrowLeft } from 'react-icons/fi'
 
-interface ButtonTextProps {
+interface ButtonTextProps extends ComponentProps<'button'> {
   placeholder: string
   haveIcon?: boolean
 }
