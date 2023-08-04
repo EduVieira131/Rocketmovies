@@ -7,7 +7,7 @@ import avatarPlaceholder from '../assets/avatar_placeholder.svg'
 
 import { api } from '../services/api'
 import { useAuth } from '../hooks/auth'
-import { useState } from 'react'
+import { useState, ChangeEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export function Profile() {
@@ -39,7 +39,7 @@ export function Profile() {
     await updateProfile({ user: userUpdated, avatarFile })
   }
 
-  function handleAvatarChange(event) {
+  function handleAvatarChange(event: ChangeEvent) {
     const file = event.target.files[0]
     setAvatarFile(file)
 

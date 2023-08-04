@@ -1,12 +1,24 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  ReactNode,
+} from 'react'
 import { api } from '../services/api'
 
 export const AuthContext = createContext({})
 
-function AuthProvider({ children }) {
+function AuthProvider({ children }: { children: ReactNode }) {
   const [data, setData] = useState({})
 
-  async function signIn({ email, password }) {
+  async function signIn({
+    email,
+    password,
+  }: {
+    email: string
+    password: string
+  }) {
     try {
       const response = await api.post('/sessions', { email, password })
       const { user, token } = response.data
@@ -16,7 +28,7 @@ function AuthProvider({ children }) {
 
       api.defaults.headers.common.Authorization = `Bearer ${token}`
       setData({ user, token })
-    } catch (error) {
+    } catch (error: any) {
       if (error.response) {
         alert(error.response.data.message)
       } else {
@@ -32,7 +44,13 @@ function AuthProvider({ children }) {
     setData({})
   }
 
-  async function updateProfile({ user, avatarFile }) {
+  async function updateProfile({
+    user,
+    avatarFile,
+  }: {
+    user: object
+    avatarFile: File | null
+  }) {
     try {
       if (avatarFile) {
         const fileUploadForm = new FormData()
@@ -48,7 +66,7 @@ function AuthProvider({ children }) {
       setData({ user, token: data.token })
 
       alert('Perfil atualizado!')
-    } catch (error) {
+    } catch (error: any) {
       if (error.response) {
         alert(error.response.data.message)
       } else {
