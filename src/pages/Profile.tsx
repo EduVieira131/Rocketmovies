@@ -8,6 +8,7 @@ import avatarPlaceholder from '../assets/avatar_placeholder.svg'
 import { api } from '../services/api'
 import { useAuth } from '../hooks/auth'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export function Profile() {
   const { user, updateProfile } = useAuth()
@@ -16,6 +17,8 @@ export function Profile() {
   const [email, setEmail] = useState(user.email)
   const [password, setPassword] = useState('')
   const [newPassword, setNewPassword] = useState('')
+
+  const navigate = useNavigate()
 
   const avatarUrl = user.avatar
     ? `${api.defaults.baseURL}/files/${user.avatar}`
@@ -44,11 +47,15 @@ export function Profile() {
     setAvatar(imagePreview)
   }
 
+  function handleBack() {
+    navigate(-1)
+  }
+
   return (
     <>
       <header className="h-36 w-full bg-[#FF859B]/5">
         <div className=" ml-[12%] w-fit pt-16">
-          <ButtonText placeholder="Voltar" haveIcon to="/" />
+          <ButtonText placeholder="Voltar" haveIcon onClick={handleBack} />
         </div>
       </header>
 

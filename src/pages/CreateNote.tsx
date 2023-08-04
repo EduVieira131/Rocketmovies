@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import { Button } from '../components/Button'
 import { ButtonText } from '../components/ButtonText'
 import { Header } from '../components/Header'
@@ -13,6 +15,8 @@ export function CreateMovie() {
   const [markers, setMarkers] = useState<string[]>([])
   const [newMarker, setNewMarker] = useState('')
 
+  const navigate = useNavigate()
+
   function handleAddMarker() {
     setMarkers((prevState) => [...prevState, newMarker])
     setNewMarker('')
@@ -22,13 +26,17 @@ export function CreateMovie() {
     setMarkers((prevState) => prevState.filter((marker) => marker !== deleted))
   }
 
+  function handleBack() {
+    navigate(-1)
+  }
+
   return (
     <>
       <Header />
 
       <main className="mx-auto mt-10 flex max-w-6xl flex-col gap-10 p-4">
         <div>
-          <ButtonText placeholder="Voltar" haveIcon to="/" />
+          <ButtonText placeholder="Voltar" haveIcon onClick={handleBack} />
           <h1 className="mt-6 text-4xl font-medium text-[#F4EDE8]">
             Novo Filme
           </h1>

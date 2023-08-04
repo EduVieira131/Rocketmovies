@@ -35,6 +35,10 @@ export function SignUp() {
       })
   }
 
+  function handleSwitchPage() {
+    navigate('/')
+  }
+
   return (
     <>
       <div className="flex items-stretch">
@@ -87,7 +91,10 @@ export function SignUp() {
             />
           </div>
 
-          <ButtonText placeholder="Voltar para o login" haveIcon to="/" />
+          <ButtonText
+            placeholder="Voltar para o login"
+            onClick={handleSwitchPage}
+          />
         </form>
 
         <div className="ml-auto flex max-h-screen">

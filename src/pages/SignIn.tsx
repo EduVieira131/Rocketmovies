@@ -5,6 +5,7 @@ import { ButtonText } from '../components/ButtonText'
 
 import { useState } from 'react'
 import { useAuth } from '../hooks/auth'
+import { useNavigate } from 'react-router-dom'
 
 import image from '../assets/signImage.png'
 
@@ -12,10 +13,16 @@ export function SignIn() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const navigate = useNavigate()
+
   const { signIn } = useAuth()
 
   function handleSignIn() {
     signIn({ email, password })
+  }
+
+  function handleSwitchPage() {
+    navigate('/register')
   }
 
   return (
@@ -63,7 +70,7 @@ export function SignIn() {
             />
           </div>
 
-          <ButtonText placeholder="Criar conta" to="/register" />
+          <ButtonText placeholder="Criar conta" onClick={handleSwitchPage} />
         </form>
 
         <div className="ml-auto flex max-h-screen">
