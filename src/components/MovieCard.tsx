@@ -7,10 +7,10 @@ export function MovieCard() {
   return (
     <Link
       to="/notes/1"
-      className="flex flex-col gap-4 p-8 bg-[#FF859B]/5 rounded-2xl"
+      className="flex flex-col gap-4 rounded-2xl bg-[#FF859B]/5 p-8"
     >
       <div>
-        <h3 className="text-[#F4EDE8] font-bold text-2xl mb-2">
+        <h3 className="mb-2 text-2xl font-bold text-[#F4EDE8]">
           Interestellar
         </h3>
 
