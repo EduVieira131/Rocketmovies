@@ -6,11 +6,12 @@ import { ButtonText } from '../components/ButtonText'
 import { Header } from '../components/Header'
 import { Input } from '../components/Input'
 import { TagButtonComponent } from '../components/TagButton'
+import { api } from '../services/api'
 
 export function CreateMovie() {
   const [title, setTitle] = useState<string>('')
   const [description, setDescription] = useState<string>('')
-  const [note, setNote] = useState<number>(0)
+  const [rating, setRating] = useState<number>(0)
 
   const [markers, setMarkers] = useState<string[]>([])
   const [newMarker, setNewMarker] = useState('')
@@ -30,6 +31,36 @@ export function CreateMovie() {
     navigate(-1)
   }
 
+  async function handleAddNewNote() {
+    if (!title) {
+      return alert('Por favor, insira um título para a nota.')
+    }
+
+    if (!rating) {
+      return alert('Você precisa digitar uma nota para o filme.')
+    }
+
+    if (!description) {
+      return alert('Você precisa digitar uma descrição para a nota.')
+    }
+
+    if (newMarker) {
+      return alert(
+        'Você deixou um marcador no campo para adicionar, mas não clicou em adicionar. Clique para adicionar ou deixe o campo vazio.',
+      )
+    }
+
+    await api.post('/notes', {
+      title,
+      description,
+      rating,
+      tags: markers,
+    })
+
+    alert('Nota criada com sucesso!')
+    navigate(-1)
+  }
+
   return (
     <>
       <Header />
@@ -44,17 +75,25 @@ export function CreateMovie() {
 
         <div className="flex items-center gap-10">
           <Input.Root>
-            <Input.Content title="Título" />
+            <Input.Content
+              title="Título"
+              onChange={(e) => setTitle(e.target.value)}
+            />
           </Input.Root>
 
           <Input.Root>
-            <Input.Content title="Sua nota de 0 a 5" type="number" />
+            <Input.Content
+              title="Sua nota de 0 a 5"
+              type="number"
+              onChange={(e) => setRating(Number(e.target.value))}
+            />
           </Input.Root>
         </div>
 
         <textarea
           id="observations"
           placeholder="Observações"
+          onChange={(e) => setDescription(e.target.value)}
           className="h-72 w-full resize-none rounded-xl bg-[#262529] px-6 py-4 text-[#F4EDE8] focus:outline-none"
         ></textarea>
 
@@ -88,7 +127,7 @@ export function CreateMovie() {
             Excluir nota
           </button>
 
-          <Button title="Salvar alterações" />
+          <Button title="Salvar alterações" onClick={handleAddNewNote} />
         </div>
       </main>
     </>
