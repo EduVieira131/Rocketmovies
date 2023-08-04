@@ -14,7 +14,7 @@ export function MovieHeader() {
 
   return (
     <div className="mt-10 flex w-fit flex-col gap-6">
-      <ButtonText placeholder="Voltar" haveIcon to="/" />
+      <ButtonText placeholder="Voltar" haveIcon onClick={handleBack} />
 
       <div className="flex items-center gap-5">
         <h1 className="text-4xl font-medium text-[#F4EDE8] ">Interestellar</h1>
