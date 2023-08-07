@@ -1,4 +1,4 @@
-import avatarPlaceholder from '../assets/avatar_placeholder.svg'
+import avatarPlaceholder from '../../assets/avatar_placeholder.svg'
 
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../hooks/auth'

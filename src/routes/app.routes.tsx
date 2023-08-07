@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import { Home } from '../pages/Home'
 import { Profile } from '../pages/Profile'
 import { CreateMovie } from '../pages/CreateNote'
-import { MoviePreview } from '../pages/NoteDetails'
+import { NoteDetails } from '../pages/NoteDetails'
 
 export function AppRoutes() {
   return (
@@ -11,7 +11,7 @@ export function AppRoutes() {
       <Route path="/" element={<Home />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/createnote" element={<CreateMovie />} />
-      <Route path="/notes/:id" element={<MoviePreview />} />
+      <Route path="/notes/:id" element={<NoteDetails />} />
     </Routes>
   )
 }

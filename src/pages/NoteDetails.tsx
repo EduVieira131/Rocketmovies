@@ -6,7 +6,7 @@ import { Header } from '../components/Header'
 
 import { useNavigate } from 'react-router-dom'
 
-export function MoviePreview() {
+export function NoteDetails() {
   const navigate = useNavigate()
 
   function handleBack() {
