@@ -9,7 +9,7 @@ import { api } from '../services/api'
 import { MoviePreview } from '../components/MoviePreview'
 
 export function Home() {
-  const [notes, setNotes] = useState<object>([])
+  const [notes, setNotes] = useState<Array<object>>([])
   const [searchValue, setSearchValue] = useState<string>('')
 
   useEffect(() => {
@@ -20,7 +20,6 @@ export function Home() {
 
     fetchNotes()
   }, [searchValue])
-
   return (
     <>
       <div className="p-2">
@@ -43,11 +42,13 @@ export function Home() {
           </div>
 
           <div className="flex max-h-[480px] flex-col gap-6 overflow-auto 2xl:max-h-[680px]">
-            <MoviePreview.Root>
-              <MoviePreview.Title title="Teste" />
-              <MoviePreview.Details description="Teste teste" />
-              <MoviePreview.Tags tags={['teste', 'oi']} />
-            </MoviePreview.Root>
+            {notes.map((note) => (
+              <MoviePreview.Root key={note.id}>
+                <MoviePreview.Title title={note.title} />
+                <MoviePreview.Details description={note.description} />
+                <MoviePreview.Tags tags={note.tags} />
+              </MoviePreview.Root>
+            ))}
           </div>
         </main>
       </div>
