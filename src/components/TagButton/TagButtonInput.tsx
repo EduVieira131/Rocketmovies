@@ -14,9 +14,9 @@ export function TagButtonInput({
     <input
       type="text"
       readOnly={editable}
-      placeholder="Novo Link"
+      placeholder="Novo Marcador"
       {...rest}
-      defaultValue={value}
+      value={value}
       className="w-fit bg-transparent outline-none"
     />
   )

@@ -14,13 +14,17 @@ export function CreateMovie() {
   const [rating, setRating] = useState<number>(0)
 
   const [markers, setMarkers] = useState<string[]>([])
-  const [newMarker, setNewMarker] = useState('')
+  const [newMarker, setNewMarker] = useState<string>('')
 
   const navigate = useNavigate()
 
   function handleAddMarker() {
-    setMarkers((prevState) => [...prevState, newMarker])
-    setNewMarker('')
+    if (newMarker) {
+      setMarkers((prevState) => [...prevState, newMarker])
+      setNewMarker('')
+    } else {
+      alert('Por favor, insira um marcador para ser adicionado.')
+    }
   }
 
   function handleRemoveMarker(deleted: string) {
