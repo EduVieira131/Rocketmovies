@@ -63,7 +63,10 @@ export function CreateMovie() {
 
   return (
     <>
-      <Header />
+      <Header.Root>
+        <Header.Search />
+        <Header.Profile />
+      </Header.Root>
 
       <main className="mx-auto mt-10 flex max-w-6xl flex-col gap-10 p-4">
         <div>

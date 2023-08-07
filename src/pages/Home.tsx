@@ -24,7 +24,10 @@ export function Home() {
   return (
     <>
       <div className="p-2">
-        <Header />
+        <Header.Root>
+          <Header.Search />
+          <Header.Profile />
+        </Header.Root>
 
         <main className="mx-auto max-w-6xl pt-12">
           <div className="mb-10 flex items-center justify-between">

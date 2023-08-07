@@ -15,7 +15,10 @@ export function MoviePreview() {
 
   return (
     <>
-      <Header />
+      <Header.Root>
+        <Header.Search />
+        <Header.Profile />
+      </Header.Root>
 
       <main className="mx-auto flex h-[85vh] max-w-6xl flex-col gap-10 overflow-auto p-4">
         <div className="mt-10 flex w-fit flex-col gap-6">
