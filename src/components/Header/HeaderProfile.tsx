@@ -22,7 +22,7 @@ export function HeaderProfile() {
     <div className="flex items-center gap-2 place-self-center">
       <div className="flex flex-col">
         <span className="whitespace-nowrap font-bold text-[#F4EDE8]">
-          Eduardo Vieira
+          {user.name}
         </span>
 
         <button className="self-end text-[#948F99]" onClick={handleSignOut}>

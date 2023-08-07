@@ -3,7 +3,7 @@ import { FiPlus } from 'react-icons/fi'
 import { Header } from '../components/Header'
 import { Button } from '../components/Button'
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { api } from '../services/api'
 import { MoviePreview } from '../components/MoviePreview'
@@ -11,6 +11,12 @@ import { MoviePreview } from '../components/MoviePreview'
 export function Home() {
   const [notes, setNotes] = useState<Array<object>>([])
   const [searchValue, setSearchValue] = useState<string>('')
+
+  const navigate = useNavigate()
+
+  function handleDetails(id: string) {
+    navigate(`/notes/${id}`)
+  }
 
   useEffect(() => {
     async function fetchNotes() {
@@ -43,7 +49,10 @@ export function Home() {
 
           <div className="flex max-h-[480px] flex-col gap-6 overflow-auto 2xl:max-h-[680px]">
             {notes.map((note) => (
-              <MoviePreview.Root key={note.id}>
+              <MoviePreview.Root
+                key={note.id}
+                onClick={() => handleDetails(note.id)}
+              >
                 <MoviePreview.Title title={note.title} />
                 <MoviePreview.Details description={note.description} />
                 <MoviePreview.Tags tags={note.tags} />
