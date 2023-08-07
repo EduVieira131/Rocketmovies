@@ -1,22 +1,60 @@
+import { FiClock } from 'react-icons/fi'
+import starsImage from '../assets/stars.svg'
+
+import { ButtonText } from '../components/ButtonText'
 import { Header } from '../components/Header'
-import { MovieHeader } from '../components/MovieHeader'
+
+import { useNavigate } from 'react-router-dom'
 
 export function MoviePreview() {
+  const navigate = useNavigate()
+
+  function handleBack() {
+    navigate(-1)
+  }
+
   return (
     <>
       <Header />
 
-      <main className="max-w-6xl h-[85vh] mx-auto p-4 flex flex-col gap-10 overflow-auto">
-        <MovieHeader />
+      <main className="mx-auto flex h-[85vh] max-w-6xl flex-col gap-10 overflow-auto p-4">
+        <div className="mt-10 flex w-fit flex-col gap-6">
+          <ButtonText placeholder="Voltar" haveIcon onClick={handleBack} />
+
+          <div className="flex items-center gap-5">
+            <h1 className="text-4xl font-medium text-[#F4EDE8] ">
+              Interestellar
+            </h1>
+            <img src={starsImage} alt="Imagem de estrelas" />
+          </div>
+
+          <div className="flex items-center gap-2">
+            <span className="flex items-center gap-2 text-[#F4EDE8] ">
+              <img
+                src="https://github.com/EduVieira131.png"
+                alt="Imagem de perfil do usuário"
+                className="h-4 w-4 rounded-full border-2 border-[#3E3B47]"
+              />
+              <p>Por Eduardo Vieira</p>
+            </span>
+
+            <span className="flex items-center gap-2 text-[#F4EDE8] ">
+              <p className="text-[#FF859B]">
+                <FiClock />
+              </p>
+              <p>10/05/23 às 08:00</p>
+            </span>
+          </div>
+        </div>
 
         <div className="flex gap-2">
-          <span className="px-4 py-2 bg-[#282124] text-[#E5E5E5] text-xs rounded-lg">
+          <span className="rounded-lg bg-[#282124] px-4 py-2 text-xs text-[#E5E5E5]">
             Ficção científica
           </span>
-          <span className="px-4 py-2 bg-[#282124] text-[#E5E5E5] text-xs rounded-lg">
+          <span className="rounded-lg bg-[#282124] px-4 py-2 text-xs text-[#E5E5E5]">
             Drama
           </span>
-          <span className="px-4 py-2 bg-[#282124] text-[#E5E5E5] text-xs rounded-lg">
+          <span className="rounded-lg bg-[#282124] px-4 py-2 text-xs text-[#E5E5E5]">
             Família
           </span>
         </div>

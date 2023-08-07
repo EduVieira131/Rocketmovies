@@ -5,8 +5,22 @@ import { Button } from '../components/Button'
 import { MovieCard } from '../components/MovieCard'
 
 import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { api } from '../services/api'
 
 export function Home() {
+  const [notes, setNotes] = useState<object>([])
+  const [searchValue, setSearchValue] = useState<string>('')
+
+  useEffect(() => {
+    async function fetchNotes() {
+      const response = await api.get(`/notes?title=${searchValue}`)
+      setNotes(response.data)
+    }
+
+    fetchNotes()
+  }, [searchValue])
+
   return (
     <>
       <div className="p-2">
