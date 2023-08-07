@@ -130,7 +130,10 @@ export function CreateMovie() {
         </div>
 
         <div className="flex gap-10">
-          <button className="flex h-full w-full items-center justify-center gap-2 rounded-lg bg-[#0D0C0F] px-8 py-4 text-[#FF859B]">
+          <button
+            className="flex h-full w-full items-center justify-center gap-2 rounded-lg bg-[#0D0C0F] px-8 py-4 text-[#FF859B]"
+            onClick={handleBack}
+          >
             Excluir nota
           </button>
 
