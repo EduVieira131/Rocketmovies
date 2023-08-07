@@ -25,7 +25,7 @@ export function Home() {
     <>
       <div className="p-2">
         <Header.Root>
-          <Header.Search />
+          <Header.Search onChange={(e) => setSearchValue(e.target.value)} />
           <Header.Profile />
         </Header.Root>
 
