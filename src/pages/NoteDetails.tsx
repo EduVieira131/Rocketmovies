@@ -1,5 +1,6 @@
 import { FiClock } from 'react-icons/fi'
-import starsImage from '../assets/stars.svg'
+import emptyStar from '../assets/emptyStar.svg'
+import fullStar from '../assets/fullStar.svg'
 
 import { ButtonText } from '../components/ButtonText'
 import { Header } from '../components/Header'
@@ -24,6 +25,30 @@ export function NoteDetails() {
 
   function handleBack() {
     navigate(-1)
+  }
+
+  function renderRating() {
+    const rating = notes.rating
+    const ratingList = []
+
+    for (let index = 0; index < rating; index++) {
+      ratingList.push('true')
+    }
+
+    if (ratingList.length < 5) {
+      while (ratingList.length !== 5) {
+        ratingList.push('false')
+      }
+    }
+
+    return ratingList.map((value, index) => (
+      <img
+        src={value === 'true' ? fullStar : emptyStar}
+        alt="Imagem de estrelas"
+        key={index}
+        className="h-5 w-5"
+      />
+    ))
   }
 
   useEffect(() => {
@@ -52,7 +77,8 @@ export function NoteDetails() {
               <h1 className="text-4xl font-medium text-[#F4EDE8] ">
                 {notes.title}
               </h1>
-              <img src={starsImage} alt="Imagem de estrelas" />
+
+              <div className="flex gap-2">{renderRating()}</div>
             </div>
 
             <div className="flex items-center gap-2">

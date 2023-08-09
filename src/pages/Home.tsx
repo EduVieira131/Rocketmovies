@@ -53,7 +53,10 @@ export function Home() {
                 key={note.id}
                 onClick={() => handleDetails(note.id)}
               >
-                <MoviePreview.Title title={note.title} />
+                <MoviePreview.Title
+                  title={note.title}
+                  noteRating={note.rating}
+                />
                 <MoviePreview.Details description={note.description} />
                 <MoviePreview.Tags tags={note.tags} />
               </MoviePreview.Root>
