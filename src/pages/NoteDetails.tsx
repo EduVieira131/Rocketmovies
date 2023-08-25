@@ -11,8 +11,13 @@ import { useAuth } from '../hooks/auth'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
+interface authProps {
+  signOut?: any
+  user?: any
+}
+
 export function NoteDetails() {
-  const { signOut, user } = useAuth()
+  const { signOut, user }: authProps = useAuth()
 
   const avatarUrl = `${api.defaults.baseURL}/files/${user.avatar}`
 

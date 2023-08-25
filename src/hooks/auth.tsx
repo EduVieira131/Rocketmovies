@@ -9,8 +9,18 @@ import { api } from '../services/api'
 
 export const AuthContext = createContext({})
 
+interface dataProps {
+  avatar?: string
+  token?: string
+  user?: object
+}
+
+interface userProps {
+  avatar?: string
+}
+
 function AuthProvider({ children }: { children: ReactNode }) {
-  const [data, setData] = useState({})
+  const [data, setData] = useState<dataProps>({})
 
   async function signIn({
     email,
@@ -48,7 +58,7 @@ function AuthProvider({ children }: { children: ReactNode }) {
     user,
     avatarFile,
   }: {
-    user: object
+    user: userProps
     avatarFile: File | null
   }) {
     try {

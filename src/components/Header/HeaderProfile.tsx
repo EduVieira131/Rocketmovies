@@ -4,8 +4,13 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../hooks/auth'
 import { api } from '../../services/api'
 
+interface authProps {
+  signOut?: any
+  user?: any
+}
+
 export function HeaderProfile() {
-  const { signOut, user } = useAuth()
+  const { signOut, user }: authProps = useAuth()
 
   const navigate = useNavigate()
 
